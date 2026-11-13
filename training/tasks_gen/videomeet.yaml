@@ -1,0 +1,140 @@
+- site: videomeet
+  start: /videomeet/login
+  task: Please log in to VideoMeet as {persona.username} with the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-videomeet-00
+  persona: 46
+  v: shift
+- site: videomeet
+  start: /videomeet/login
+  task: Please log in to VideoMeet as {persona.username} with the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-videomeet-01
+  persona: 28
+  v: shift
+- site: videomeet
+  start: /videomeet/login
+  task: Please log in to VideoMeet as {persona.username} with the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-videomeet-02
+  persona: 32
+- site: videomeet
+  start: /videomeet/login
+  task: Please log in to VideoMeet as {persona.username} with the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-videomeet-03
+  persona: 32
+- site: videomeet
+  start: /videomeet/meeting
+  task: Leave the meeting
+  expect:
+  - path: leave.id
+    exists: true
+  max_steps: 5
+  id: gen-meet_leave-videomeet-00
+  persona: 28
+  secrets: {}
+- site: videomeet
+  start: /videomeet/meeting
+  task: Click the Leave meeting button
+  expect:
+  - path: leave.id
+    exists: true
+  max_steps: 5
+  id: gen-meet_leave-videomeet-01
+  persona: 21
+  secrets: {}
+- site: videomeet
+  start: /videomeet/meeting
+  task: Click the Leave meeting button
+  expect:
+  - path: leave.id
+    exists: true
+  max_steps: 5
+  id: gen-meet_leave-videomeet-02
+  persona: 38
+  secrets: {}
+- site: videomeet
+  start: /videomeet/meeting
+  task: Click the Leave meeting button
+  expect:
+  - path: leave.id
+    exists: true
+  max_steps: 5
+  id: gen-meet_leave-videomeet-03
+  persona: 33
+  secrets: {}
+  v: dark
+- site: videomeet
+  start: /videomeet/login
+  task: Log in as {persona.username} with the stored password, then leave the meeting
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 12
+  expect:
+  - path: login.ok
+    equals: true
+  - path: leave.id
+    exists: true
+  id: gen-meet_login_leave-videomeet-00
+  persona: 45
+  v: dark
+- site: videomeet
+  start: /videomeet/login
+  task: Log in as {persona.username} with the stored password, then leave the meeting
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 12
+  expect:
+  - path: login.ok
+    equals: true
+  - path: leave.id
+    exists: true
+  id: gen-meet_login_leave-videomeet-01
+  persona: 25
+- site: videomeet
+  start: /videomeet/login
+  task: Log in as {persona.username} with the stored password, then leave the meeting
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 12
+  expect:
+  - path: login.ok
+    equals: true
+  - path: leave.id
+    exists: true
+  id: gen-meet_login_leave-videomeet-02
+  persona: 29
+- site: videomeet
+  start: /videomeet/login
+  task: Log in as {persona.username} with the stored password, then leave the meeting
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 12
+  expect:
+  - path: login.ok
+    equals: true
+  - path: leave.id
+    exists: true
+  id: gen-meet_login_leave-videomeet-03
+  persona: 32

@@ -1,0 +1,617 @@
+- site: demobank
+  start: /demobank/login
+  task: Please log in to DemoBank as {persona.username} with the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-demobank-00
+  persona: 19
+  v: serif
+- site: demobank
+  start: /demobank/login
+  task: Log in to DemoBank as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-demobank-01
+  persona: 14
+  v: large
+- site: demobank
+  start: /demobank/login
+  task: Log in to DemoBank as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-demobank-02
+  persona: 33
+  v: large
+- site: demobank
+  start: /demobank/login
+  task: Log in to DemoBank as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-demobank-03
+  persona: 42
+- site: demobank
+  start: /demobank/login
+  task: Log in to DemoBank as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-demobank-04
+  persona: 15
+  v: serif
+- site: demobank
+  start: /demobank/login
+  task: Please log in to DemoBank as {persona.username} with the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-demobank-05
+  persona: 14
+- site: demobank
+  start: /demobank/login
+  task: Log in to DemoBank as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-demobank-06
+  persona: 45
+  v: serif
+- site: demobank
+  start: /demobank/login
+  task: Log in to DemoBank as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-demobank-07
+  persona: 46
+- site: demobank
+  start: /demobank/profile
+  task: Change my mobile number to {persona.new_phone} and save the changes
+  expect:
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-demobank_phone-demobank-00
+  persona: 41
+  secrets: {}
+- site: demobank
+  start: /demobank/profile
+  task: Change my mobile number to {persona.new_phone} and save the changes
+  expect:
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-demobank_phone-demobank-01
+  persona: 28
+  secrets: {}
+- site: demobank
+  start: /demobank/profile
+  task: Change my mobile number to {persona.new_phone} and save the changes
+  expect:
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-demobank_phone-demobank-02
+  persona: 35
+  secrets: {}
+  v: serif
+- site: demobank
+  start: /demobank/profile
+  task: Update my mobile number to {persona.new_phone} and save
+  expect:
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-demobank_phone-demobank-03
+  persona: 15
+  secrets: {}
+- site: demobank
+  start: /demobank/profile
+  task: Update my mobile number to {persona.new_phone} and save
+  expect:
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-demobank_phone-demobank-04
+  persona: 35
+  secrets: {}
+  v: large
+- site: demobank
+  start: /demobank/profile
+  task: Update my mobile number to {persona.new_phone} and save
+  expect:
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-demobank_phone-demobank-05
+  persona: 18
+  secrets: {}
+  v: serif
+- site: demobank
+  start: /demobank/profile
+  task: Update my mobile number to {persona.new_phone} and save
+  expect:
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-demobank_phone-demobank-06
+  persona: 36
+  secrets: {}
+  v: dark
+- site: demobank
+  start: /demobank/profile
+  task: Update my mobile number to {persona.new_phone} and save
+  expect:
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-demobank_phone-demobank-07
+  persona: 24
+  secrets: {}
+- site: demobank
+  start: /demobank/profile
+  task: Change my address to {persona.new_address} and save the changes
+  expect:
+  - path: profile.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-demobank_address-demobank-00
+  persona: 21
+  secrets: {}
+- site: demobank
+  start: /demobank/profile
+  task: Change my address to {persona.new_address} and save the changes
+  expect:
+  - path: profile.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-demobank_address-demobank-01
+  persona: 24
+  secrets: {}
+- site: demobank
+  start: /demobank/profile
+  task: Update my address to {persona.new_address} and save the changes
+  expect:
+  - path: profile.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-demobank_address-demobank-02
+  persona: 47
+  secrets: {}
+- site: demobank
+  start: /demobank/profile
+  task: Update my address to {persona.new_address} and save the changes
+  expect:
+  - path: profile.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-demobank_address-demobank-03
+  persona: 28
+  secrets: {}
+- site: demobank
+  start: /demobank/profile
+  task: Change my address to {persona.new_address} and save the changes
+  expect:
+  - path: profile.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-demobank_address-demobank-04
+  persona: 36
+  secrets: {}
+  v: large
+- site: demobank
+  start: /demobank/profile
+  task: Update my address to {persona.new_address} and save the changes
+  expect:
+  - path: profile.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-demobank_address-demobank-05
+  persona: 49
+  secrets: {}
+  v: large
+- site: demobank
+  start: /demobank/profile
+  task: Update my address to {persona.new_address} and save the changes
+  expect:
+  - path: profile.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-demobank_address-demobank-06
+  persona: 18
+  secrets: {}
+  v: shift
+- site: demobank
+  start: /demobank/profile
+  task: Change my address to {persona.new_address} and save the changes
+  expect:
+  - path: profile.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-demobank_address-demobank-07
+  persona: 39
+  secrets: {}
+  v: shift
+- site: demobank
+  start: /demobank/transfer
+  task: 'Send 750 rupees to a new payee: account number 717607162275, IFSC UTIB0417406'
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '717607162275'
+  - path: payee.ifsc
+    equals: UTIB0417406
+  - path: payee.amount
+    equals: '750'
+  id: gen-demobank_payee-demobank-00
+  persona: 35
+  secrets: {}
+- site: demobank
+  start: /demobank/transfer
+  task: 'Send 250 rupees to a new payee: account number 797852826716, IFSC UTIB0065271'
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '797852826716'
+  - path: payee.ifsc
+    equals: UTIB0065271
+  - path: payee.amount
+    equals: '250'
+  id: gen-demobank_payee-demobank-01
+  persona: 14
+  secrets: {}
+- site: demobank
+  start: /demobank/transfer
+  task: 'Send 1200 rupees to a new payee: account number 277986137137, IFSC HDFC0356572'
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '277986137137'
+  - path: payee.ifsc
+    equals: HDFC0356572
+  - path: payee.amount
+    equals: '1200'
+  id: gen-demobank_payee-demobank-02
+  persona: 13
+  secrets: {}
+- site: demobank
+  start: /demobank/transfer
+  task: 'Send 100 rupees to a new payee: account number 722771259848, IFSC ICIC0562685'
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '722771259848'
+  - path: payee.ifsc
+    equals: ICIC0562685
+  - path: payee.amount
+    equals: '100'
+  id: gen-demobank_payee-demobank-03
+  persona: 33
+  secrets: {}
+  v: large
+- site: demobank
+  start: /demobank/transfer
+  task: 'Send 750 rupees to a new payee: account number 177418936826, IFSC ICIC0643898'
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '177418936826'
+  - path: payee.ifsc
+    equals: ICIC0643898
+  - path: payee.amount
+    equals: '750'
+  id: gen-demobank_payee-demobank-04
+  persona: 19
+  secrets: {}
+  v: shift
+- site: demobank
+  start: /demobank/transfer
+  task: 'Send 100 rupees to a new payee: account number 762916990321, IFSC SBIN0497183'
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '762916990321'
+  - path: payee.ifsc
+    equals: SBIN0497183
+  - path: payee.amount
+    equals: '100'
+  id: gen-demobank_payee-demobank-05
+  persona: 17
+  secrets: {}
+  v: serif
+- site: demobank
+  start: /demobank/transfer
+  task: 'Send 100 rupees to a new payee: account number 625987419607, IFSC UTIB0327000'
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '625987419607'
+  - path: payee.ifsc
+    equals: UTIB0327000
+  - path: payee.amount
+    equals: '100'
+  id: gen-demobank_payee-demobank-06
+  persona: 19
+  secrets: {}
+- site: demobank
+  start: /demobank/transfer
+  task: 'Send 250 rupees to a new payee: account number 476881979733, IFSC SBIN0501871'
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '476881979733'
+  - path: payee.ifsc
+    equals: SBIN0501871
+  - path: payee.amount
+    equals: '250'
+  id: gen-demobank_payee-demobank-07
+  persona: 43
+  secrets: {}
+- site: demobank
+  start: /demobank/login
+  task: Log in as {persona.username} with the stored password, then open Profile and
+    change the mobile number to {persona.new_phone} and save
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 15
+  expect:
+  - path: login.ok
+    equals: true
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  id: gen-demobank_login_profile-demobank-00
+  persona: 23
+  v: large
+- site: demobank
+  start: /demobank/login
+  task: Log in as {persona.username} with the stored password, then open Profile and
+    change the mobile number to {persona.new_phone} and save
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 15
+  expect:
+  - path: login.ok
+    equals: true
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  id: gen-demobank_login_profile-demobank-01
+  persona: 33
+- site: demobank
+  start: /demobank/login
+  task: Log in as {persona.username} with the stored password, then open Profile and
+    change the mobile number to {persona.new_phone} and save
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 15
+  expect:
+  - path: login.ok
+    equals: true
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  id: gen-demobank_login_profile-demobank-02
+  persona: 44
+- site: demobank
+  start: /demobank/login
+  task: Log in as {persona.username} with the stored password, then open Profile and
+    change the mobile number to {persona.new_phone} and save
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 15
+  expect:
+  - path: login.ok
+    equals: true
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  id: gen-demobank_login_profile-demobank-03
+  persona: 43
+  v: dark
+- site: demobank
+  start: /demobank/login
+  task: Log in as {persona.username} with the stored password, then open Profile and
+    change the mobile number to {persona.new_phone} and save
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 15
+  expect:
+  - path: login.ok
+    equals: true
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  id: gen-demobank_login_profile-demobank-04
+  persona: 15
+  v: shift
+- site: demobank
+  start: /demobank/login
+  task: Log in as {persona.username} with the stored password, then open Profile and
+    change the mobile number to {persona.new_phone} and save
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 15
+  expect:
+  - path: login.ok
+    equals: true
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  id: gen-demobank_login_profile-demobank-05
+  persona: 26
+  v: large
+- site: demobank
+  start: /demobank/login
+  task: Log in as {persona.username} with the stored password, then open Profile and
+    change the mobile number to {persona.new_phone} and save
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 15
+  expect:
+  - path: login.ok
+    equals: true
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  id: gen-demobank_login_profile-demobank-06
+  persona: 33
+- site: demobank
+  start: /demobank/login
+  task: Log in as {persona.username} with the stored password, then open Profile and
+    change the mobile number to {persona.new_phone} and save
+  secrets:
+    PASSWORD: '{persona.password}'
+  max_steps: 15
+  expect:
+  - path: login.ok
+    equals: true
+  - path: profile.phone
+    equals: '{persona.new_phone}'
+  id: gen-demobank_login_profile-demobank-07
+  persona: 32
+- site: demobank
+  start: /demobank/dashboard
+  task: Open the transfer page and send 250 rupees to account number 694992953764
+    with IFSC SBIN0667357
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '694992953764'
+  - path: payee.ifsc
+    equals: SBIN0667357
+  - path: payee.amount
+    equals: '250'
+  id: gen-demobank_dash_transfer-demobank-00
+  persona: 49
+  secrets: {}
+- site: demobank
+  start: /demobank/dashboard
+  task: Open the transfer page and send 250 rupees to account number 365455086226
+    with IFSC UTIB0775813
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '365455086226'
+  - path: payee.ifsc
+    equals: UTIB0775813
+  - path: payee.amount
+    equals: '250'
+  id: gen-demobank_dash_transfer-demobank-01
+  persona: 22
+  secrets: {}
+  v: large
+- site: demobank
+  start: /demobank/dashboard
+  task: Open the transfer page and send 500 rupees to account number 492958505834
+    with IFSC HDFC0029294
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '492958505834'
+  - path: payee.ifsc
+    equals: HDFC0029294
+  - path: payee.amount
+    equals: '500'
+  id: gen-demobank_dash_transfer-demobank-02
+  persona: 40
+  secrets: {}
+  v: dark
+- site: demobank
+  start: /demobank/dashboard
+  task: Open the transfer page and send 500 rupees to account number 861040910084
+    with IFSC SBIN0468952
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '861040910084'
+  - path: payee.ifsc
+    equals: SBIN0468952
+  - path: payee.amount
+    equals: '500'
+  id: gen-demobank_dash_transfer-demobank-03
+  persona: 33
+  secrets: {}
+- site: demobank
+  start: /demobank/dashboard
+  task: Open the transfer page and send 250 rupees to account number 212616028160
+    with IFSC ICIC0492914
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '212616028160'
+  - path: payee.ifsc
+    equals: ICIC0492914
+  - path: payee.amount
+    equals: '250'
+  id: gen-demobank_dash_transfer-demobank-04
+  persona: 31
+  secrets: {}
+- site: demobank
+  start: /demobank/dashboard
+  task: Open the transfer page and send 500 rupees to account number 784972780213
+    with IFSC HDFC0502764
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '784972780213'
+  - path: payee.ifsc
+    equals: HDFC0502764
+  - path: payee.amount
+    equals: '500'
+  id: gen-demobank_dash_transfer-demobank-05
+  persona: 15
+  secrets: {}
+  v: shift
+- site: demobank
+  start: /demobank/dashboard
+  task: Open the transfer page and send 250 rupees to account number 960662207495
+    with IFSC ICIC0501253
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '960662207495'
+  - path: payee.ifsc
+    equals: ICIC0501253
+  - path: payee.amount
+    equals: '250'
+  id: gen-demobank_dash_transfer-demobank-06
+  persona: 37
+  secrets: {}
+  v: shift
+- site: demobank
+  start: /demobank/dashboard
+  task: Open the transfer page and send 750 rupees to account number 195917431033
+    with IFSC UTIB0485659
+  max_steps: 12
+  expect:
+  - path: payee.account
+    equals: '195917431033'
+  - path: payee.ifsc
+    equals: UTIB0485659
+  - path: payee.amount
+    equals: '750'
+  id: gen-demobank_dash_transfer-demobank-07
+  persona: 15
+  secrets: {}
+  v: shift

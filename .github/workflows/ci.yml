@@ -1,0 +1,38 @@
+# Unit tests and the shipped-build checks on every push (Phase 1 asked for CI; added in Phase 10).
+# The browser checks (eval/run_all.py) need a headed Chromium and the 440 MB of model assets, so they run locally.
+name: ci
+on: [push, pull_request]
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python -m pip install -r requirements.txt
+      - name: persona generator and validators
+        working-directory: testsites/generator
+        run: python -m pytest -q
+      - name: agent server (schemas, parser, prompt, audit log)
+        working-directory: server
+        run: python -m pytest -q
+      - name: training pipeline (redaction port, dataset builders, oracle, scorer)
+        working-directory: training
+        run: python -m pytest tests -q
+
+  extension:
+    runs-on: ubuntu-latest
+    defaults:
+      run: { working-directory: extension }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22", cache: npm, cache-dependency-path: extension/package-lock.json }
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - name: build without model assets (they are fetched at setup time, not needed to compile)
+        run: npx vite build && npx vite build -c vite.content.config.ts
+      - name: the shipped build contains no evaluation-only clean-screens code
+        run: npm run check:no-clean | tee /dev/stderr | grep -q "^ok"

@@ -1,0 +1,28 @@
+{
+  "name": "privasight-extension",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && vite build -c vite.content.config.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "assets": "node scripts/fetch-assets.mjs",
+    "build:clean": "tsc --noEmit && vite build --outDir dist-clean --mode evalclean && vite build -c vite.content.config.ts --outDir dist-clean",
+    "check:no-clean": "node -e \"const fs=require('fs');const g=(d)=>fs.readdirSync(d,{recursive:true}).filter(f=>f.endsWith('.js')).some(f=>fs.readFileSync(d+'/'+f,'utf8').includes('observeClean')||fs.readFileSync(d+'/'+f,'utf8').includes('unprotected agent'));console.log(g('dist')?'FAIL: clean code in dist':'ok: dist has no clean-mode code')\""
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.7.1",
+    "@types/chrome": "^0.3.6",
+    "jsdom": "^30.1.3",
+    "typescript": "^7.0.2",
+    "vite": "^6.4.5",
+    "vitest": "^5.0.5"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.2",
+    "@mediapipe/tasks-vision": "^1.2.0",
+    "tesseract.js": "^7.0.0"
+  }
+}

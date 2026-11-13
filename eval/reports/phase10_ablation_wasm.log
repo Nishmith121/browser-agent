@@ -1,0 +1,31 @@
+backend=wasm captures=225 (pages 15 x variants 5 x personas 3); guard-blocked=0; first capture (includes model load) 3468 ms
+category   total  covered   dark/blurred  leaked-in-JSON
+AADHAAR       30   100.0%     100.0%      0
+ACCOUNT       30   100.0%     100.0%      0
+ADDRESS       60   100.0%     100.0%      0
+CARD          30   100.0%     100.0%      0
+CVV           15   100.0%     100.0%      0
+DOB           45   100.0%     100.0%      0
+EMAIL        195   100.0%     100.0%      0
+FACE          90   100.0%     100.0%      0
+IFSC          30   100.0%     100.0%      0
+NAME         285    98.9%      98.9%      0
+PAN           30   100.0%     100.0%      0
+PHONE        180   100.0%     100.0%      0
+
+TEXT PII (structured + names + addresses): recall 99.7% (927/930), leaked in JSON: 0
+redaction precision (painted area on ground truth): 95.2%
+painted off ground truth (precision loss): NAME/ner x75 (7384 cells, e.g. hr/leave:"From (DD/MM/YYYY)", hr/leave:"To (DD/MM/YYYY)", hr/leave:"From (DD/MM/YYYY)", hr/leave:"To (DD/MM/YYYY)")
+local latency ms (ml+map+rules+paint, excl. first capture, n=224): median 40  p95 292 | ner median 0 p95 178 | face median 9 p95 32 | paint median 19
+
+misses (3), first 14:
+   {"page":"videomeet/meeting?p=0&v=shift","category":"NAME","value":"Mason Viswanathan","coverage":0.83,"ok_pixels":false,"leaked":false}
+   {"page":"videomeet/meeting?p=1&v=shift","category":"NAME","value":"Mason Viswanathan","coverage":0.82,"ok_pixels":false,"leaked":false}
+   {"page":"videomeet/meeting?p=2&v=shift","category":"NAME","value":"Mason Viswanathan","coverage":0.83,"ok_pixels":false,"leaked":false}
+
+layer ablation (recall = ground-truth items >= 90% covered; precision = painted area on ground truth):
+layers                 structured           names       addresses  text PII (all)           faces   precision
+dom                         10.3%            0.0%            0.0%            6.5%            0.0%   100.0%
+dom+regex                   92.3%            0.0%          100.0%           64.5%            0.0%   99.9%
+dom+regex+ner               92.3%           93.7%          100.0%           93.2%            0.0%   98.1%
+full                       100.0%           98.9%          100.0%           99.7%          100.0%   95.2%

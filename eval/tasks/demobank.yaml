@@ -1,0 +1,61 @@
+# Task format: id, site, start (path; ?p=<persona> is added), persona, task (text given to the agent),
+# secrets (vault entries; PASSWORD, or any other name -> {SECRET:name}), expect (checks on the site's
+# /check state), max_steps. {persona.<field>} is filled from testsites/personas.json.
+# `expect` paths are relative to `state`; ops: equals, contains, startswith, exists; or url_contains.
+- id: demobank-login
+  site: demobank
+  start: /demobank/login
+  persona: 0
+  task: "Log in to DemoBank as {persona.username} using the stored password"
+  secrets: {PASSWORD: "{persona.password}"}
+  expect: [{path: login.ok, equals: true}]
+  max_steps: 10
+
+- id: demobank-update-phone
+  site: demobank
+  start: /demobank/profile
+  persona: 1
+  task: "Change my mobile number to {persona.new_phone} and save the changes"
+  expect: [{path: profile.phone, equals: "{persona.new_phone}"}]
+  max_steps: 8
+
+- id: demobank-update-address
+  site: demobank
+  start: /demobank/profile
+  persona: 2
+  task: "Change my address to {persona.new_address} and save the changes"
+  expect: [{path: profile.address, equals: "{persona.new_address}"}]
+  max_steps: 8
+
+- id: demobank-add-payee
+  site: demobank
+  start: /demobank/transfer
+  persona: 3
+  task: "Send 500 rupees to a new payee: account number 123456789012, IFSC HDFC0001234"
+  expect:
+    - {path: payee.account, equals: "123456789012"}
+    - {path: payee.ifsc, equals: "HDFC0001234"}
+    - {path: payee.amount, equals: "500"}
+  max_steps: 10
+
+- id: demobank-login-then-profile
+  site: demobank
+  start: /demobank/login
+  persona: 4
+  task: "Log in as {persona.username} with the stored password, then open Profile and change the mobile number to {persona.new_phone} and save"
+  secrets: {PASSWORD: "{persona.password}"}
+  expect:
+    - {path: login.ok, equals: true}
+    - {path: profile.phone, equals: "{persona.new_phone}"}
+  max_steps: 15
+
+- id: demobank-dashboard-to-transfer
+  site: demobank
+  start: /demobank/dashboard
+  persona: 5
+  task: "Open the transfer page and send 250 rupees to account number 987654321098 with IFSC SBIN0004321"
+  expect:
+    - {path: payee.account, equals: "987654321098"}
+    - {path: payee.ifsc, equals: "SBIN0004321"}
+    - {path: payee.amount, equals: "250"}
+  max_steps: 12

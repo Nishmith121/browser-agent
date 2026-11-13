@@ -1,0 +1,64 @@
+{
+  "model": "Qwen/Qwen3-VL-2B-Instruct",
+  "adapter": null,
+  "data": "data/final_clean",
+  "split": "test",
+  "table": {
+    "all": {
+      "valid": 1.0,
+      "type": 0.5533,
+      "element": 0.4772,
+      "exact": 0.3553,
+      "n": 197
+    },
+    "site:espn": {
+      "valid": 1.0,
+      "type": 1.0,
+      "element": 0.0,
+      "exact": 0.0,
+      "n": 2
+    },
+    "site:mailbox": {
+      "valid": 1.0,
+      "type": 0.5,
+      "element": 0.5,
+      "exact": 0.4474,
+      "n": 76
+    },
+    "site:shopmart": {
+      "valid": 1.0,
+      "type": 0.5294,
+      "element": 0.4118,
+      "exact": 0.2353,
+      "n": 68
+    },
+    "site:soundcloud": {
+      "valid": 1.0,
+      "type": 0.8571,
+      "element": 0.1429,
+      "exact": 0.1429,
+      "n": 7
+    },
+    "site:videomeet": {
+      "valid": 1.0,
+      "type": 0.6136,
+      "element": 0.6136,
+      "exact": 0.4318,
+      "n": 44
+    },
+    "source:mind2web": {
+      "valid": 1.0,
+      "type": 0.8889,
+      "element": 0.1111,
+      "exact": 0.1111,
+      "n": 9
+    },
+    "source:synthetic": {
+      "valid": 1.0,
+      "type": 0.5372,
+      "element": 0.4947,
+      "exact": 0.367,
+      "n": 188
+    }
+  }
+}

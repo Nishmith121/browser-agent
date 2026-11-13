@@ -1,0 +1,19 @@
+{
+  "name": "oracle-clean",
+  "label": "Oracle (data generation), clean screens",
+  "kind": "data",
+  "model": "oracle",
+  "base_url": "http://localhost:11436/v1",
+  "extension": "dist-clean",
+  "server_env": {
+    "ALLOW_TYPED_PII": "1"
+  },
+  "enabled": false,
+  "health": {
+    "model_reachable": true,
+    "model": "oracle",
+    "model_installed": true
+  },
+  "date": "2026-11-03T12:00:41.479Z",
+  "runs": 1
+}

@@ -1,0 +1,482 @@
+- site: hr
+  start: /hr/login
+  task: Log in to the HR Portal as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hr-00
+  persona: 47
+- site: hr
+  start: /hr/login
+  task: Please log in to the HR Portal as {persona.username} with the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hr-01
+  persona: 13
+- site: hr
+  start: /hr/login
+  task: Log in to the HR Portal as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hr-02
+  persona: 45
+- site: hr
+  start: /hr/login
+  task: Please log in to the HR Portal as {persona.username} with the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hr-03
+  persona: 36
+- site: hr
+  start: /hr/login
+  task: Log in to the HR Portal as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hr-04
+  persona: 46
+  v: dark
+- site: hr
+  start: /hr/login
+  task: Log in to the HR Portal as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hr-05
+  persona: 16
+  v: large
+- site: hr
+  start: /hr/login
+  task: Log in to the HR Portal as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hr-06
+  persona: 33
+- site: hr
+  start: /hr/login
+  task: Log in to the HR Portal as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hr-07
+  persona: 46
+- site: hr
+  start: /hr/profile
+  task: Update my address to {persona.new_address} using the Update address box and
+    save
+  expect:
+  - path: address.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-hr_address-hr-00
+  persona: 20
+  secrets: {}
+- site: hr
+  start: /hr/profile
+  task: Update my address to {persona.new_address} using the Update address box and
+    save
+  expect:
+  - path: address.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-hr_address-hr-01
+  persona: 18
+  secrets: {}
+- site: hr
+  start: /hr/profile
+  task: Update my address to {persona.new_address} using the Update address box and
+    save
+  expect:
+  - path: address.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-hr_address-hr-02
+  persona: 19
+  secrets: {}
+  v: large
+- site: hr
+  start: /hr/profile
+  task: Update my address to {persona.new_address} using the Update address box and
+    save
+  expect:
+  - path: address.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-hr_address-hr-03
+  persona: 39
+  secrets: {}
+  v: shift
+- site: hr
+  start: /hr/profile
+  task: Update my address to {persona.new_address} using the Update address box and
+    save
+  expect:
+  - path: address.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-hr_address-hr-04
+  persona: 19
+  secrets: {}
+  v: large
+- site: hr
+  start: /hr/profile
+  task: Update my address to {persona.new_address} using the Update address box and
+    save
+  expect:
+  - path: address.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-hr_address-hr-05
+  persona: 48
+  secrets: {}
+  v: serif
+- site: hr
+  start: /hr/profile
+  task: Update my address to {persona.new_address} using the Update address box and
+    save
+  expect:
+  - path: address.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-hr_address-hr-06
+  persona: 32
+  secrets: {}
+- site: hr
+  start: /hr/profile
+  task: Update my address to {persona.new_address} using the Update address box and
+    save
+  expect:
+  - path: address.address
+    equals: '{persona.new_address}'
+  max_steps: 8
+  id: gen-hr_address-hr-07
+  persona: 45
+  secrets: {}
+  v: large
+- site: hr
+  start: /hr/profile
+  task: Change the contact number field to {persona.new_phone} and save
+  expect:
+  - path: address.contact
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-hr_contact-hr-00
+  persona: 18
+  secrets: {}
+- site: hr
+  start: /hr/profile
+  task: Change the contact number field to {persona.new_phone} and save
+  expect:
+  - path: address.contact
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-hr_contact-hr-01
+  persona: 10
+  secrets: {}
+  v: shift
+- site: hr
+  start: /hr/profile
+  task: Change the contact number field to {persona.new_phone} and save
+  expect:
+  - path: address.contact
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-hr_contact-hr-02
+  persona: 16
+  secrets: {}
+  v: large
+- site: hr
+  start: /hr/profile
+  task: Change the contact number field to {persona.new_phone} and save
+  expect:
+  - path: address.contact
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-hr_contact-hr-03
+  persona: 18
+  secrets: {}
+  v: serif
+- site: hr
+  start: /hr/profile
+  task: Change the contact number field to {persona.new_phone} and save
+  expect:
+  - path: address.contact
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-hr_contact-hr-04
+  persona: 22
+  secrets: {}
+- site: hr
+  start: /hr/profile
+  task: Change the contact number field to {persona.new_phone} and save
+  expect:
+  - path: address.contact
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-hr_contact-hr-05
+  persona: 11
+  secrets: {}
+  v: dark
+- site: hr
+  start: /hr/profile
+  task: Change the contact number field to {persona.new_phone} and save
+  expect:
+  - path: address.contact
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-hr_contact-hr-06
+  persona: 23
+  secrets: {}
+  v: dark
+- site: hr
+  start: /hr/profile
+  task: Change the contact number field to {persona.new_phone} and save
+  expect:
+  - path: address.contact
+    equals: '{persona.new_phone}'
+  max_steps: 8
+  id: gen-hr_contact-hr-07
+  persona: 42
+  secrets: {}
+- site: hr
+  start: /hr/leave
+  task: Apply for earned leave from 11/05/2027 to 18/07/2027 with the reason fever
+  max_steps: 10
+  expect:
+  - path: leave.type
+    equals: Earned leave
+  - path: leave.from
+    equals: 11/05/2027
+  - path: leave.to
+    equals: 18/07/2027
+  - path: leave.reason
+    contains: fever
+  id: gen-hr_leave-hr-00
+  persona: 13
+  secrets: {}
+  v: shift
+- site: hr
+  start: /hr/leave
+  task: Apply for sick leave from 15/11/2027 to 19/09/2027 with the reason travel
+  max_steps: 10
+  expect:
+  - path: leave.type
+    equals: Sick leave
+  - path: leave.from
+    equals: 15/11/2027
+  - path: leave.to
+    equals: 19/09/2027
+  - path: leave.reason
+    contains: travel
+  id: gen-hr_leave-hr-01
+  persona: 42
+  secrets: {}
+- site: hr
+  start: /hr/leave
+  task: Apply for earned leave from 05/09/2027 to 17/01/2027 with the reason travel
+  max_steps: 10
+  expect:
+  - path: leave.type
+    equals: Earned leave
+  - path: leave.from
+    equals: 05/09/2027
+  - path: leave.to
+    equals: 17/01/2027
+  - path: leave.reason
+    contains: travel
+  id: gen-hr_leave-hr-02
+  persona: 21
+  secrets: {}
+  v: large
+- site: hr
+  start: /hr/leave
+  task: Apply for casual leave from 25/03/2027 to 06/03/2027 with the reason travel
+  max_steps: 10
+  expect:
+  - path: leave.type
+    equals: Casual leave
+  - path: leave.from
+    equals: 25/03/2027
+  - path: leave.to
+    equals: 06/03/2027
+  - path: leave.reason
+    contains: travel
+  id: gen-hr_leave-hr-03
+  persona: 49
+  secrets: {}
+  v: shift
+- site: hr
+  start: /hr/leave
+  task: Apply for casual leave from 18/01/2027 to 11/11/2027 with the reason personal
+    work
+  max_steps: 10
+  expect:
+  - path: leave.type
+    equals: Casual leave
+  - path: leave.from
+    equals: 18/01/2027
+  - path: leave.to
+    equals: 11/11/2027
+  - path: leave.reason
+    contains: personal
+  id: gen-hr_leave-hr-04
+  persona: 43
+  secrets: {}
+  v: large
+- site: hr
+  start: /hr/leave
+  task: Apply for sick leave from 26/02/2027 to 18/01/2027 with the reason fever
+  max_steps: 10
+  expect:
+  - path: leave.type
+    equals: Sick leave
+  - path: leave.from
+    equals: 26/02/2027
+  - path: leave.to
+    equals: 18/01/2027
+  - path: leave.reason
+    contains: fever
+  id: gen-hr_leave-hr-05
+  persona: 22
+  secrets: {}
+  v: dark
+- site: hr
+  start: /hr/leave
+  task: Apply for casual leave from 25/02/2027 to 17/08/2027 with the reason personal
+    work
+  max_steps: 10
+  expect:
+  - path: leave.type
+    equals: Casual leave
+  - path: leave.from
+    equals: 25/02/2027
+  - path: leave.to
+    equals: 17/08/2027
+  - path: leave.reason
+    contains: personal
+  id: gen-hr_leave-hr-06
+  persona: 11
+  secrets: {}
+- site: hr
+  start: /hr/leave
+  task: Apply for sick leave from 11/10/2027 to 17/10/2027 with the reason personal
+    work
+  max_steps: 10
+  expect:
+  - path: leave.type
+    equals: Sick leave
+  - path: leave.from
+    equals: 11/10/2027
+  - path: leave.to
+    equals: 17/10/2027
+  - path: leave.reason
+    contains: personal
+  id: gen-hr_leave-hr-07
+  persona: 22
+  secrets: {}
+  v: shift
+- site: hr
+  start: /hr/profile
+  task: Open the ID card page
+  expect:
+  - url_contains: /hr/idcard
+  max_steps: 5
+  id: gen-hr_idcard-hr-00
+  persona: 27
+  secrets: {}
+  v: serif
+- site: hr
+  start: /hr/profile
+  task: Open the ID card page
+  expect:
+  - url_contains: /hr/idcard
+  max_steps: 5
+  id: gen-hr_idcard-hr-01
+  persona: 42
+  secrets: {}
+  v: large
+- site: hr
+  start: /hr/profile
+  task: Open the ID card page
+  expect:
+  - url_contains: /hr/idcard
+  max_steps: 5
+  id: gen-hr_idcard-hr-02
+  persona: 40
+  secrets: {}
+  v: large
+- site: hr
+  start: /hr/profile
+  task: Open the ID card page
+  expect:
+  - url_contains: /hr/idcard
+  max_steps: 5
+  id: gen-hr_idcard-hr-03
+  persona: 25
+  secrets: {}
+  v: shift
+- site: hr
+  start: /hr/profile
+  task: Open the ID card page
+  expect:
+  - url_contains: /hr/idcard
+  max_steps: 5
+  id: gen-hr_idcard-hr-04
+  persona: 43
+  secrets: {}
+  v: dark
+- site: hr
+  start: /hr/profile
+  task: Open the ID card page
+  expect:
+  - url_contains: /hr/idcard
+  max_steps: 5
+  id: gen-hr_idcard-hr-05
+  persona: 45
+  secrets: {}
+- site: hr
+  start: /hr/profile
+  task: Open the ID card page
+  expect:
+  - url_contains: /hr/idcard
+  max_steps: 5
+  id: gen-hr_idcard-hr-06
+  persona: 38
+  secrets: {}
+- site: hr
+  start: /hr/profile
+  task: Open the ID card page
+  expect:
+  - url_contains: /hr/idcard
+  max_steps: 5
+  id: gen-hr_idcard-hr-07
+  persona: 36
+  secrets: {}

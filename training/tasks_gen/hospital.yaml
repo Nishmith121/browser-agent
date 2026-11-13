@@ -1,0 +1,276 @@
+- site: hospital
+  start: /hospital/login
+  task: Log in to the hospital portal as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hospital-00
+  persona: 41
+  v: shift
+- site: hospital
+  start: /hospital/login
+  task: Please log in to the hospital portal as {persona.username} with the stored
+    password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hospital-01
+  persona: 30
+  v: serif
+- site: hospital
+  start: /hospital/login
+  task: Please log in to the hospital portal as {persona.username} with the stored
+    password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hospital-02
+  persona: 33
+  v: dark
+- site: hospital
+  start: /hospital/login
+  task: Log in to the hospital portal as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hospital-03
+  persona: 21
+  v: shift
+- site: hospital
+  start: /hospital/login
+  task: Log in to the hospital portal as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hospital-04
+  persona: 15
+  v: large
+- site: hospital
+  start: /hospital/login
+  task: Please log in to the hospital portal as {persona.username} with the stored
+    password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hospital-05
+  persona: 43
+  v: serif
+- site: hospital
+  start: /hospital/login
+  task: Please log in to the hospital portal as {persona.username} with the stored
+    password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hospital-06
+  persona: 38
+  v: dark
+- site: hospital
+  start: /hospital/login
+  task: Log in to the hospital portal as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-hospital-07
+  persona: 17
+  v: large
+- site: hospital
+  start: /hospital/appointments
+  task: Book an appointment in the Orthopaedics department for 15/06/2027
+  expect:
+  - path: book.department
+    equals: Orthopaedics
+  - path: book.date
+    equals: 15/06/2027
+  max_steps: 8
+  id: gen-hospital_book-hospital-00
+  persona: 25
+  secrets: {}
+  v: serif
+- site: hospital
+  start: /hospital/appointments
+  task: Book a Cardiology appointment for 07/11/2027
+  expect:
+  - path: book.department
+    equals: Cardiology
+  - path: book.date
+    equals: 07/11/2027
+  max_steps: 8
+  id: gen-hospital_book-hospital-01
+  persona: 17
+  secrets: {}
+- site: hospital
+  start: /hospital/appointments
+  task: Book an appointment in the Neurology department for 05/05/2027
+  expect:
+  - path: book.department
+    equals: Neurology
+  - path: book.date
+    equals: 05/05/2027
+  max_steps: 8
+  id: gen-hospital_book-hospital-02
+  persona: 39
+  secrets: {}
+- site: hospital
+  start: /hospital/appointments
+  task: Book an appointment in the Cardiology department for 13/08/2027
+  expect:
+  - path: book.department
+    equals: Cardiology
+  - path: book.date
+    equals: 13/08/2027
+  max_steps: 8
+  id: gen-hospital_book-hospital-03
+  persona: 24
+  secrets: {}
+- site: hospital
+  start: /hospital/appointments
+  task: Book a Orthopaedics appointment for 17/07/2027
+  expect:
+  - path: book.department
+    equals: Orthopaedics
+  - path: book.date
+    equals: 17/07/2027
+  max_steps: 8
+  id: gen-hospital_book-hospital-04
+  persona: 36
+  secrets: {}
+- site: hospital
+  start: /hospital/appointments
+  task: Book a Neurology appointment for 11/02/2027
+  expect:
+  - path: book.department
+    equals: Neurology
+  - path: book.date
+    equals: 11/02/2027
+  max_steps: 8
+  id: gen-hospital_book-hospital-05
+  persona: 11
+  secrets: {}
+  v: dark
+- site: hospital
+  start: /hospital/appointments
+  task: Book an appointment in the Paediatrics department for 15/08/2027
+  expect:
+  - path: book.department
+    equals: Paediatrics
+  - path: book.date
+    equals: 15/08/2027
+  max_steps: 8
+  id: gen-hospital_book-hospital-06
+  persona: 34
+  secrets: {}
+  v: dark
+- site: hospital
+  start: /hospital/appointments
+  task: Book an appointment in the Paediatrics department for 20/05/2027
+  expect:
+  - path: book.department
+    equals: Paediatrics
+  - path: book.date
+    equals: 20/05/2027
+  max_steps: 8
+  id: gen-hospital_book-hospital-07
+  persona: 17
+  secrets: {}
+- site: hospital
+  start: /hospital/appointments
+  task: Open my medical records
+  expect:
+  - url_contains: /hospital/records
+  max_steps: 5
+  id: gen-hospital_records-hospital-00
+  persona: 16
+  secrets: {}
+- site: hospital
+  start: /hospital/appointments
+  task: Open my medical records
+  expect:
+  - url_contains: /hospital/records
+  max_steps: 5
+  id: gen-hospital_records-hospital-01
+  persona: 26
+  secrets: {}
+  v: dark
+- site: hospital
+  start: /hospital/appointments
+  task: Open my medical records
+  expect:
+  - url_contains: /hospital/records
+  max_steps: 5
+  id: gen-hospital_records-hospital-02
+  persona: 12
+  secrets: {}
+- site: hospital
+  start: /hospital/appointments
+  task: Open my medical records
+  expect:
+  - url_contains: /hospital/records
+  max_steps: 5
+  id: gen-hospital_records-hospital-03
+  persona: 27
+  secrets: {}
+- site: hospital
+  start: /hospital/appointments
+  task: Open my medical records
+  expect:
+  - url_contains: /hospital/records
+  max_steps: 5
+  id: gen-hospital_records-hospital-04
+  persona: 37
+  secrets: {}
+  v: shift
+- site: hospital
+  start: /hospital/appointments
+  task: Open my medical records
+  expect:
+  - url_contains: /hospital/records
+  max_steps: 5
+  id: gen-hospital_records-hospital-05
+  persona: 26
+  secrets: {}
+  v: serif
+- site: hospital
+  start: /hospital/appointments
+  task: Open my medical records
+  expect:
+  - url_contains: /hospital/records
+  max_steps: 5
+  id: gen-hospital_records-hospital-06
+  persona: 19
+  secrets: {}
+  v: large
+- site: hospital
+  start: /hospital/appointments
+  task: Open my medical records
+  expect:
+  - url_contains: /hospital/records
+  max_steps: 5
+  id: gen-hospital_records-hospital-07
+  persona: 42
+  secrets: {}
+  v: large

@@ -1,0 +1,46 @@
+- id: hospital-login
+  site: hospital
+  start: /hospital/login
+  persona: 2
+  task: "Log in to the hospital portal as {persona.username} using the stored password"
+  secrets: {PASSWORD: "{persona.password}"}
+  expect: [{path: login.ok, equals: true}]
+  max_steps: 10
+
+- id: hospital-book-cardiology
+  site: hospital
+  start: /hospital/appointments
+  persona: 3
+  task: "Book an appointment in the Cardiology department for 15/12/2026"
+  expect:
+    - {path: book.department, equals: "Cardiology"}
+    - {path: book.date, equals: "15/12/2026"}
+  max_steps: 8
+
+- id: hospital-book-neurology
+  site: hospital
+  start: /hospital/appointments
+  persona: 4
+  task: "Book a Neurology appointment for 20/12/2026"
+  expect:
+    - {path: book.department, equals: "Neurology"}
+    - {path: book.date, equals: "20/12/2026"}
+  max_steps: 8
+
+- id: hospital-book-dermatology
+  site: hospital
+  start: /hospital/appointments
+  persona: 5
+  task: "Book Dermatology on 02/01/2027"
+  expect:
+    - {path: book.department, equals: "Dermatology"}
+    - {path: book.date, equals: "02/01/2027"}
+  max_steps: 8
+
+- id: hospital-open-records
+  site: hospital
+  start: /hospital/appointments
+  persona: 6
+  task: "Open my medical records"
+  expect: [{url_contains: "/hospital/records"}]
+  max_steps: 5

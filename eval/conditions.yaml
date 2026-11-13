@@ -1,0 +1,107 @@
+# Experimental conditions. `model` is the Ollama (or vLLM) model name behind the agent server; `extension` is the
+# build directory: dist = the shipped extension (redaction on), dist-clean = the evaluation-only unsafe baseline
+# that sends clean screens (never ship it; built with `npm run build:clean`).
+conditions:
+  - name: qwen3vl-2b-redacted
+    label: "Qwen3-VL-2B, redacted (PrivaSight)"
+    model: qwen3-vl-2b-instruct-8k
+    extension: dist
+    enabled: true
+
+  - name: qwen3vl-2b-clean
+    label: "Qwen3-VL-2B, clean screens (unsafe baseline)"
+    model: qwen3-vl-2b-instruct-8k
+    extension: dist-clean
+    server_env: {ALLOW_TYPED_PII: "1"}   # evaluation-only: the baseline has no typed-PII rejection either
+    enabled: true
+
+  # Needs ~3.3 GB of model memory: only if the machine has room. Pull with `ollama pull qwen3-vl:4b-instruct`.
+  - name: qwen3vl-4b-redacted
+    label: "Qwen3-VL-4B, redacted (PrivaSight)"
+    model: qwen3-vl-4b-instruct-8k
+    extension: dist
+    enabled: false
+
+  - name: qwen3vl-4b-clean
+    label: "Qwen3-VL-4B, clean screens (unsafe baseline)"
+    model: qwen3-vl-4b-instruct-8k
+    extension: dist-clean
+    server_env: {ALLOW_TYPED_PII: "1"}
+    enabled: false
+
+  # GUI-Owl-1.5 has no Ollama build; it needs vLLM (lab GPU) with VLM_BASE_URL pointing at it.
+  - name: guiowl-4b-redacted
+    label: "GUI-Owl-1.5-4B, redacted (PrivaSight)"
+    model: mPLUG/GUI-Owl-1.5-4B-Instruct
+    extension: dist
+    enabled: false
+
+  # Phase 7 (needs a GPU server: vLLM with the base model and the trained adapter, see training/README.md).
+  # Base model on clean vs redacted screens, and the LoRA model on redacted screens, on the same 32 tasks.
+  - name: qwen3vl-4b-vllm-clean
+    label: "Qwen3-VL-4B base, clean screens (unsafe)"
+    model: Qwen/Qwen3-VL-4B-Instruct
+    base_url: http://localhost:8001/v1
+    extension: dist-clean
+    server_env: {ALLOW_TYPED_PII: "1"}
+    enabled: false
+
+  - name: qwen3vl-4b-vllm-redacted
+    label: "Qwen3-VL-4B base, redacted (PrivaSight)"
+    model: Qwen/Qwen3-VL-4B-Instruct
+    base_url: http://localhost:8001/v1
+    extension: dist
+    enabled: false
+
+  - name: qwen3vl-4b-lora-redacted
+    label: "Qwen3-VL-4B + redaction-aware LoRA, redacted (PrivaSight)"
+    model: privasight
+    base_url: http://localhost:8001/v1
+    extension: dist
+    enabled: false
+
+  # Phase 10: the 2B adapter that was actually trained (Kaggle), served live by training/serve_hf.py on any GPU you can
+  # reach (Kaggle/Colab through a tunnel works). One server, one set of weights: "base" = adapter disabled,
+  # "privasight-2b" = adapter on, so the comparison differs only in the adapter. Set LORA_BASE_URL first, e.g.
+  #   set LORA_BASE_URL=https://<tunnel>.trycloudflare.com/v1        (Windows; export on Linux/macOS)
+  #   python run_eval.py --conditions qwen3vl-2b-hf-clean,qwen3vl-2b-hf-redacted,qwen3vl-2b-lora-redacted
+  - name: qwen3vl-2b-hf-clean
+    label: "Qwen3-VL-2B base (HF 4-bit), clean screens (unsafe)"
+    model: base
+    base_url: ${LORA_BASE_URL}
+    extension: dist-clean
+    server_env: {ALLOW_TYPED_PII: "1"}
+    enabled: false
+
+  - name: qwen3vl-2b-hf-redacted
+    label: "Qwen3-VL-2B base (HF 4-bit), redacted (PrivaSight)"
+    model: base
+    base_url: ${LORA_BASE_URL}
+    extension: dist
+    enabled: false
+
+  - name: qwen3vl-2b-lora-redacted
+    label: "Qwen3-VL-2B + redaction-aware LoRA (HF 4-bit), redacted (PrivaSight)"
+    model: privasight-2b
+    base_url: ${LORA_BASE_URL}
+    extension: dist
+    enabled: false
+
+  # Data generation (Phase 7), not baselines: a scripted expert (training/oracle_vlm.py) answers instead of a VLM, and the
+  # server audit logs of these runs become fine-tuning data. `kind: data` keeps them out of the Phase 6 report.
+  - name: oracle-redacted
+    label: "Oracle (data generation), redacted"
+    kind: data
+    model: oracle
+    base_url: http://localhost:11436/v1
+    extension: dist
+    enabled: false
+
+  - name: oracle-clean
+    label: "Oracle (data generation), clean screens"
+    kind: data
+    model: oracle
+    base_url: http://localhost:11436/v1
+    extension: dist-clean
+    server_env: {ALLOW_TYPED_PII: "1"}
+    enabled: false

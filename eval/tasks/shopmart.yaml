@@ -1,0 +1,54 @@
+- id: shopmart-login
+  site: shopmart
+  start: /shopmart/login
+  persona: 7
+  task: "Log in to ShopMart as {persona.username} using the stored password"
+  secrets: {PASSWORD: "{persona.password}"}
+  expect: [{path: login.ok, equals: true}]
+  max_steps: 10
+
+- id: shopmart-add-cable
+  site: shopmart
+  start: /shopmart/search
+  persona: 8
+  task: "Search for cable and add the USB-C cable to the cart"
+  expect: [{path: cart.item, equals: "USB-C cable"}]
+  max_steps: 10
+
+- id: shopmart-add-keyboard
+  site: shopmart
+  start: /shopmart/search
+  persona: 9
+  task: "Add the Mechanical keyboard to the cart"
+  expect: [{path: cart.item, equals: "Mechanical keyboard"}]
+  max_steps: 8
+
+- id: shopmart-add-headphones
+  site: shopmart
+  start: /shopmart/search
+  persona: 0
+  task: "Search for headphones and add the noise cancelling headphones to the cart"
+  expect: [{path: cart.item, equals: "Noise cancelling headphones"}]
+  max_steps: 10
+
+- id: shopmart-checkout-phone
+  site: shopmart
+  start: /shopmart/checkout
+  persona: 1
+  task: "Change the delivery phone number to {persona.new_phone}, fill the card number and CVV from the stored secrets, and place the order"
+  secrets: {card: "{persona.card_number}", cvv: "123"}
+  expect:
+    - {path: order.phone, equals: "{persona.new_phone}"}
+    - {path: order.paid, equals: true}
+  max_steps: 12
+
+- id: shopmart-checkout-address
+  site: shopmart
+  start: /shopmart/checkout
+  persona: 2
+  task: "Change the delivery address to {persona.new_address}, fill the card number from the stored secret, and place the order"
+  secrets: {card: "{persona.card_number}"}
+  expect:
+    - {path: order.address, equals: "{persona.new_address}"}
+    - {path: order.paid, equals: true}
+  max_steps: 12

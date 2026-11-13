@@ -1,0 +1,36 @@
+{
+ "model": "dslim/bert-base-NER (shipped in Phase 5 as Xenova/bert-base-NER)",
+ "note": "Person-name evaluation from training/ner/train_ner.py (Phase 8), copied from training/ner/runs/ (git-ignored) so the final report can be rebuilt. exact_* = entity-level precision/recall/F1 for PER; word_recall = share of name words tagged as a person; false_rows = share of rows with a spurious person tag.",
+ "val": {
+  "word_recall": 0.8727,
+  "exact_p": 0.8975,
+  "exact_r": 0.8388,
+  "exact_f1": 0.8672,
+  "false_rows": 0.0563,
+  "n": 1500
+ },
+ "test_heldout": {
+  "word_recall": 0.8675,
+  "exact_p": 0.906,
+  "exact_r": 0.8444,
+  "exact_f1": 0.8741,
+  "false_rows": 0.0449,
+  "n": 1500
+ },
+ "test_hard": {
+  "word_recall": 0.9803,
+  "exact_p": 0.9765,
+  "exact_r": 0.9675,
+  "exact_f1": 0.972,
+  "false_rows": null,
+  "n": 1200
+ },
+ "test_negatives": {
+  "word_recall": null,
+  "exact_p": 0.0,
+  "exact_r": 0.0,
+  "exact_f1": 0.0,
+  "false_rows": 0.0308,
+  "n": 1200
+ }
+}

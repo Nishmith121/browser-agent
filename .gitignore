@@ -1,0 +1,50 @@
+# ---- Dependencies -----------------------------------------------------------
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ---- Build output (rebuilt with `npm run build` / `npm run build:clean`) ------
+extension/dist/
+extension/dist-clean/
+testsites/build/
+
+# ---- Downloaded or generated model assets (about 440-570 MB) ------------------
+# Recreated by `npm run assets` in extension/; the fine-tuned NER by training/ner/export_onnx.py.
+extension/public/ort/
+extension/public/mediapipe/
+extension/public/models/
+extension/public/tesseract/
+
+# ---- Generated data, logs and training outputs --------------------------------
+testsites/groundtruth/
+server/logs/
+training/data/
+training/kaggle/
+training/ner/runs/
+training/ner/data/
+training/results/adapter-*/
+*.safetensors
+*.onnx
+*.zip
+
+# ---- Demo recording intermediates (the final mp4 and .srt are kept) -----------
+eval/reports/demo/*.webm
+eval/reports/demo/raw/
+
+# ---- Secrets and local environment (extension/.env.evalclean is NOT secret and is needed) --
+.env
+.env.local
+*.pem
+
+# ---- Editors and OS -------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

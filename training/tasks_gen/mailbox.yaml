@@ -1,0 +1,228 @@
+- site: mailbox
+  start: /mailbox/login
+  task: Please log in to MailBox as {persona.username} with the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-mailbox-00
+  persona: 48
+  v: serif
+- site: mailbox
+  start: /mailbox/login
+  task: Please log in to MailBox as {persona.username} with the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-mailbox-01
+  persona: 14
+- site: mailbox
+  start: /mailbox/login
+  task: Please log in to MailBox as {persona.username} with the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-mailbox-02
+  persona: 40
+  v: shift
+- site: mailbox
+  start: /mailbox/login
+  task: Log in to MailBox as {persona.username} using the stored password
+  secrets:
+    PASSWORD: '{persona.password}'
+  expect:
+  - path: login.ok
+    equals: true
+  max_steps: 10
+  id: gen-login-mailbox-03
+  persona: 13
+  v: shift
+- site: mailbox
+  start: /mailbox/inbox
+  task: 'Open the mail with the subject Invoice for October and reply saying: I will
+    check and reply tomorrow'
+  max_steps: 12
+  expect:
+  - path: send.subject
+    startswith: 'Re:'
+  - path: send.subject
+    contains: Invoice for October
+  - path: send.message
+    contains: I will check and reply tomorrow
+  id: gen-mail_reply-mailbox-00
+  persona: 38
+  secrets: {}
+  v: large
+- site: mailbox
+  start: /mailbox/inbox
+  task: 'Open the mail with the subject Invoice for October and reply saying: I will
+    check and reply tomorrow'
+  max_steps: 12
+  expect:
+  - path: send.subject
+    startswith: 'Re:'
+  - path: send.subject
+    contains: Invoice for October
+  - path: send.message
+    contains: I will check and reply tomorrow
+  id: gen-mail_reply-mailbox-01
+  persona: 32
+  secrets: {}
+- site: mailbox
+  start: /mailbox/inbox
+  task: 'Open the mail with the subject Lunch on Friday and reply saying: Thanks,
+    received'
+  max_steps: 12
+  expect:
+  - path: send.subject
+    startswith: 'Re:'
+  - path: send.subject
+    contains: Lunch on Friday
+  - path: send.message
+    contains: Thanks
+  id: gen-mail_reply-mailbox-02
+  persona: 10
+  secrets: {}
+- site: mailbox
+  start: /mailbox/inbox
+  task: 'Open the mail with the subject Please confirm your details and reply saying:
+    Sounds good'
+  max_steps: 12
+  expect:
+  - path: send.subject
+    startswith: 'Re:'
+  - path: send.subject
+    contains: Please confirm your details
+  - path: send.message
+    contains: Sounds good
+  id: gen-mail_reply-mailbox-03
+  persona: 42
+  secrets: {}
+  v: serif
+- site: mailbox
+  start: /mailbox/compose
+  task: Compose a mail to hr58@example.com with the subject Weekly update and the
+    message Can we talk tomorrow, then send it
+  max_steps: 10
+  expect:
+  - path: send.to
+    equals: hr58@example.com
+  - path: send.subject
+    equals: Weekly update
+  - path: send.message
+    contains: tomorrow
+  id: gen-mail_compose-mailbox-00
+  persona: 37
+  secrets: {}
+  v: shift
+- site: mailbox
+  start: /mailbox/compose
+  task: Compose a mail to support70@example.com with the subject Meeting notes and
+    the message Can we talk tomorrow, then send it
+  max_steps: 10
+  expect:
+  - path: send.to
+    equals: support70@example.com
+  - path: send.subject
+    equals: Meeting notes
+  - path: send.message
+    contains: tomorrow
+  id: gen-mail_compose-mailbox-01
+  persona: 29
+  secrets: {}
+  v: shift
+- site: mailbox
+  start: /mailbox/compose
+  task: Compose a mail to hr30@example.com with the subject Meeting notes and the
+    message All tasks are on track, then send it
+  max_steps: 10
+  expect:
+  - path: send.to
+    equals: hr30@example.com
+  - path: send.subject
+    equals: Meeting notes
+  - path: send.message
+    contains: track
+  id: gen-mail_compose-mailbox-02
+  persona: 18
+  secrets: {}
+  v: serif
+- site: mailbox
+  start: /mailbox/compose
+  task: Compose a mail to finance7@example.com with the subject Weekly update and
+    the message All tasks are on track, then send it
+  max_steps: 10
+  expect:
+  - path: send.to
+    equals: finance7@example.com
+  - path: send.subject
+    equals: Weekly update
+  - path: send.message
+    contains: track
+  id: gen-mail_compose-mailbox-03
+  persona: 14
+  secrets: {}
+  v: shift
+- site: mailbox
+  start: /mailbox/compose
+  task: 'Send a mail to hr95@example.com with the subject Contact change and the message:
+    My new number is {persona.new_phone}'
+  max_steps: 10
+  expect:
+  - path: send.to
+    equals: hr95@example.com
+  - path: send.message
+    contains: '{persona.new_phone}'
+  id: gen-mail_compose_phone-mailbox-00
+  persona: 26
+  secrets: {}
+  v: serif
+- site: mailbox
+  start: /mailbox/compose
+  task: 'Send a mail to hr21@example.com with the subject Contact change and the message:
+    My new number is {persona.new_phone}'
+  max_steps: 10
+  expect:
+  - path: send.to
+    equals: hr21@example.com
+  - path: send.message
+    contains: '{persona.new_phone}'
+  id: gen-mail_compose_phone-mailbox-01
+  persona: 13
+  secrets: {}
+- site: mailbox
+  start: /mailbox/compose
+  task: 'Send a mail to hr86@example.com with the subject Contact change and the message:
+    My new number is {persona.new_phone}'
+  max_steps: 10
+  expect:
+  - path: send.to
+    equals: hr86@example.com
+  - path: send.message
+    contains: '{persona.new_phone}'
+  id: gen-mail_compose_phone-mailbox-02
+  persona: 34
+  secrets: {}
+  v: large
+- site: mailbox
+  start: /mailbox/compose
+  task: 'Send a mail to hr86@example.com with the subject Contact change and the message:
+    My new number is {persona.new_phone}'
+  max_steps: 10
+  expect:
+  - path: send.to
+    equals: hr86@example.com
+  - path: send.message
+    contains: '{persona.new_phone}'
+  id: gen-mail_compose_phone-mailbox-03
+  persona: 28
+  secrets: {}
+  v: large

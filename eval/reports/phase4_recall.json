@@ -1,0 +1,91 @@
+{
+  "captures": 420,
+  "blockedCaptures": 0,
+  "stats": {
+    "NAME": {
+      "total": 540,
+      "covered": 537,
+      "black": 537,
+      "leaked": 0,
+      "blocked": 0
+    },
+    "ACCOUNT": {
+      "total": 60,
+      "covered": 60,
+      "black": 60,
+      "leaked": 0,
+      "blocked": 0
+    },
+    "IFSC": {
+      "total": 60,
+      "covered": 60,
+      "black": 60,
+      "leaked": 0,
+      "blocked": 0
+    },
+    "PHONE": {
+      "total": 330,
+      "covered": 330,
+      "black": 330,
+      "leaked": 0,
+      "blocked": 0
+    },
+    "EMAIL": {
+      "total": 390,
+      "covered": 390,
+      "black": 390,
+      "leaked": 0,
+      "blocked": 0
+    },
+    "ADDRESS": {
+      "total": 120,
+      "covered": 120,
+      "black": 120,
+      "leaked": 0,
+      "blocked": 0
+    },
+    "PAN": {
+      "total": 30,
+      "covered": 30,
+      "black": 30,
+      "leaked": 0,
+      "blocked": 0
+    },
+    "AADHAAR": {
+      "total": 30,
+      "covered": 30,
+      "black": 30,
+      "leaked": 0,
+      "blocked": 0
+    },
+    "DOB": {
+      "total": 90,
+      "covered": 90,
+      "black": 90,
+      "leaked": 0,
+      "blocked": 0
+    },
+    "FACE": {
+      "total": 180,
+      "covered": 3,
+      "black": 38,
+      "leaked": 0,
+      "blocked": 0
+    },
+    "CARD": {
+      "total": 60,
+      "covered": 60,
+      "black": 60,
+      "leaked": 0,
+      "blocked": 0
+    },
+    "CVV": {
+      "total": 30,
+      "covered": 30,
+      "black": 30,
+      "leaked": 0,
+      "blocked": 0
+    }
+  },
+  "misses": []
+}

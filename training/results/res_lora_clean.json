@@ -1,0 +1,64 @@
+{
+  "model": "Qwen/Qwen3-VL-2B-Instruct",
+  "adapter": "/kaggle/working/runs/privasight-2b-clean",
+  "data": "data/final_clean",
+  "split": "test",
+  "table": {
+    "all": {
+      "valid": 1.0,
+      "type": 0.9645,
+      "element": 0.934,
+      "exact": 0.8782,
+      "n": 197
+    },
+    "site:espn": {
+      "valid": 1.0,
+      "type": 1.0,
+      "element": 0.5,
+      "exact": 0.5,
+      "n": 2
+    },
+    "site:mailbox": {
+      "valid": 1.0,
+      "type": 1.0,
+      "element": 1.0,
+      "exact": 0.9737,
+      "n": 76
+    },
+    "site:shopmart": {
+      "valid": 1.0,
+      "type": 0.9412,
+      "element": 0.9118,
+      "exact": 0.7794,
+      "n": 68
+    },
+    "site:soundcloud": {
+      "valid": 1.0,
+      "type": 1.0,
+      "element": 0.5714,
+      "exact": 0.5714,
+      "n": 7
+    },
+    "site:videomeet": {
+      "valid": 1.0,
+      "type": 0.9318,
+      "element": 0.9318,
+      "exact": 0.9318,
+      "n": 44
+    },
+    "source:mind2web": {
+      "valid": 1.0,
+      "type": 1.0,
+      "element": 0.5556,
+      "exact": 0.5556,
+      "n": 9
+    },
+    "source:synthetic": {
+      "valid": 1.0,
+      "type": 0.9628,
+      "element": 0.9521,
+      "exact": 0.8936,
+      "n": 188
+    }
+  }
+}

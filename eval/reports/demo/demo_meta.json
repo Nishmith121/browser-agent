@@ -1,0 +1,16 @@
+{
+  "model": "scripted expert (oracle_vlm.py)",
+  "scenes": [
+    "capture",
+    "login",
+    "meeting"
+  ],
+  "seconds": 84,
+  "sessions": [
+    "smw6ovuk2",
+    "smw6owm3v"
+  ],
+  "requests": 9,
+  "leaks": 0,
+  "panelOffsetS": 0.211
+}

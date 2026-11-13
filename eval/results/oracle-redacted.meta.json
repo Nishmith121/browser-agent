@@ -1,0 +1,16 @@
+{
+  "name": "oracle-redacted",
+  "label": "Oracle (data generation), redacted",
+  "kind": "data",
+  "model": "oracle",
+  "base_url": "http://localhost:11436/v1",
+  "extension": "dist",
+  "enabled": false,
+  "health": {
+    "model_reachable": true,
+    "model": "oracle",
+    "model_installed": true
+  },
+  "date": "2026-11-03T11:46:27.195Z",
+  "runs": 1
+}

@@ -1,0 +1,35 @@
+- id: videomeet-login
+  site: videomeet
+  start: /videomeet/login
+  persona: 8
+  task: "Log in to VideoMeet as {persona.username} using the stored password"
+  secrets: {PASSWORD: "{persona.password}"}
+  expect: [{path: login.ok, equals: true}]
+  max_steps: 10
+
+- id: videomeet-leave
+  site: videomeet
+  start: /videomeet/meeting
+  persona: 9
+  task: "Leave the meeting"
+  expect: [{path: leave.id, exists: true}]
+  max_steps: 5
+
+- id: videomeet-login-then-leave
+  site: videomeet
+  start: /videomeet/login
+  persona: 0
+  task: "Log in as {persona.username} with the stored password, then leave the meeting"
+  secrets: {PASSWORD: "{persona.password}"}
+  expect:
+    - {path: login.ok, equals: true}
+    - {path: leave.id, exists: true}
+  max_steps: 12
+
+- id: videomeet-leave-click
+  site: videomeet
+  start: /videomeet/meeting
+  persona: 1
+  task: "Click the Leave meeting button"
+  expect: [{path: leave.id, exists: true}]
+  max_steps: 5

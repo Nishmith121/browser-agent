@@ -1,0 +1,36 @@
+{
+ "model": "PrivaSight/bert-ner-in (fine-tuned, Phase 8)",
+ "note": "Person-name evaluation from training/ner/train_ner.py (Phase 8), copied from training/ner/runs/ (git-ignored) so the final report can be rebuilt. exact_* = entity-level precision/recall/F1 for PER; word_recall = share of name words tagged as a person; false_rows = share of rows with a spurious person tag.",
+ "val": {
+  "word_recall": 1.0,
+  "exact_p": 1.0,
+  "exact_r": 1.0,
+  "exact_f1": 1.0,
+  "false_rows": 0.0,
+  "n": 1500
+ },
+ "test_heldout": {
+  "word_recall": 0.9988,
+  "exact_p": 0.9746,
+  "exact_r": 0.9963,
+  "exact_f1": 0.9853,
+  "false_rows": 0.0275,
+  "n": 1500
+ },
+ "test_hard": {
+  "word_recall": 1.0,
+  "exact_p": 0.9608,
+  "exact_r": 0.98,
+  "exact_f1": 0.9703,
+  "false_rows": null,
+  "n": 1200
+ },
+ "test_negatives": {
+  "word_recall": null,
+  "exact_p": 0.0,
+  "exact_r": 0.0,
+  "exact_f1": 0.0,
+  "false_rows": 0.015,
+  "n": 1200
+ }
+}

@@ -1,0 +1,50 @@
+- id: mailbox-login
+  site: mailbox
+  start: /mailbox/login
+  persona: 3
+  task: "Log in to MailBox as {persona.username} using the stored password"
+  secrets: {PASSWORD: "{persona.password}"}
+  expect: [{path: login.ok, equals: true}]
+  max_steps: 10
+
+- id: mailbox-reply-invoice
+  site: mailbox
+  start: /mailbox/inbox
+  persona: 4
+  task: "Open the mail with the subject Invoice for October and reply saying: Thanks, received"
+  expect:
+    - {path: send.subject, startswith: "Re:"}
+    - {path: send.subject, contains: "Invoice"}
+    - {path: send.message, contains: "Thanks"}
+  max_steps: 12
+
+- id: mailbox-reply-kickoff
+  site: mailbox
+  start: /mailbox/inbox
+  persona: 5
+  task: "Find the mail about Project kickoff and reply saying: Sounds good"
+  expect:
+    - {path: send.subject, contains: "Project kickoff"}
+    - {path: send.message, contains: "Sounds good"}
+  max_steps: 12
+
+- id: mailbox-compose-team
+  site: mailbox
+  start: /mailbox/compose
+  persona: 6
+  task: "Compose a mail to team@example.com with the subject Weekly update and the message All tasks are on track, then send it"
+  expect:
+    - {path: send.to, equals: "team@example.com"}
+    - {path: send.subject, equals: "Weekly update"}
+    - {path: send.message, contains: "on track"}
+  max_steps: 10
+
+- id: mailbox-compose-phone
+  site: mailbox
+  start: /mailbox/compose
+  persona: 7
+  task: "Send a mail to hr@example.com with the subject Contact change and the message: My new number is {persona.new_phone}"
+  expect:
+    - {path: send.to, equals: "hr@example.com"}
+    - {path: send.message, contains: "{persona.new_phone}"}
+  max_steps: 10

@@ -1,0 +1,83 @@
+1
+00:00:00,354 --> 00:00:04,356
+PrivaSight demo. Left: the real page (synthetic person). Right: the Privacy view, exactly what leaves the device. Model: scripted expert (oracle_vlm.py)
+
+2
+00:00:04,356 --> 00:00:09,127
+HR Portal profile: name, Aadhaar, PAN, phone, email, DOB, address and a photo. Press Capture & mark.
+
+3
+00:00:09,127 --> 00:00:15,137
+On-device redaction: black boxes for PII text, the face blurred, numbered boxes for the agent. Nothing has been sent yet.
+
+4
+00:00:15,137 --> 00:00:20,142
+Every painted region with its detector: DOM rules, regex with validators (Verhoeff, Luhn), NER model, face detector.
+
+5
+00:00:20,142 --> 00:00:26,991
+The outgoing JSON: personal values are typed placeholders such as [PHONE_1] and [NAME_1]; the real values stay on the device.
+
+6
+00:00:26,991 --> 00:00:30,492
+DemoBank. The password goes into the on-device vault; the model only ever sees the name {PASSWORD}.
+
+7
+00:00:30,492 --> 00:00:33,727
+Task text contains a new phone number: it is sanitised to [PHONE_1] before it leaves the device.
+
+8
+00:00:33,727 --> 00:00:37,054
+Step 1, the model's action: type "user04" into element 1
+
+9
+00:00:37,054 --> 00:00:40,460
+Step 2, the model's action: type "{PASSWORD}" into element 2: a placeholder; the extension types the real value locally
+
+10
+00:00:40,460 --> 00:00:44,073
+Step 3, the model's action: click element 3
+
+11
+00:00:44,073 --> 00:00:47,946
+Step 4, the model's action: click element 2
+
+12
+00:00:47,946 --> 00:00:51,279
+Step 5, the model's action: type "[PHONE_1]" into element 5: a placeholder; the extension types the real value locally
+
+13
+00:00:51,279 --> 00:00:54,632
+Step 6, the model's action: click element 7
+
+14
+00:00:54,632 --> 00:00:56,390
+Step 7, the model's action: done: The form was submitted.
+
+15
+00:00:56,390 --> 00:00:57,900
+Agent finished (done).
+
+16
+00:00:57,900 --> 00:01:03,253
+Site state: the mobile number was really changed. The server only ever saw [PHONE_1].
+
+17
+00:01:03,253 --> 00:01:10,421
+VideoMeet: participant faces and names. Faces are blurred on the device; video elements are blurred by default.
+
+18
+00:01:10,421 --> 00:01:14,300
+Step 1, the model's action: click element 3
+
+19
+00:01:14,300 --> 00:01:15,807
+Step 2, the model's action: done: Left the meeting.
+
+20
+00:01:15,807 --> 00:01:18,814
+Agent finished (done).
+
+21
+00:01:18,814 --> 00:01:23,816
+Audit of the agent server's request log for this demo: 9 requests, 0 real personal values found.

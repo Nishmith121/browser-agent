@@ -1,0 +1,15 @@
+{
+  "name": "qwen3vl-2b-hf-redacted",
+  "label": "Qwen3-VL-2B base (HF 4-bit), redacted (PrivaSight)",
+  "model": "base",
+  "base_url": "${LORA_BASE_URL}",
+  "extension": "dist",
+  "enabled": false,
+  "health": {
+    "model_reachable": true,
+    "model": "base",
+    "model_installed": true
+  },
+  "date": "2026-11-08T12:36:54.640Z",
+  "runs": 3
+}

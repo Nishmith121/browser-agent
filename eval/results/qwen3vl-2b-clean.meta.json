@@ -1,0 +1,17 @@
+{
+  "name": "qwen3vl-2b-clean",
+  "label": "Qwen3-VL-2B, clean screens (unsafe baseline)",
+  "model": "qwen3-vl-2b-instruct-8k",
+  "extension": "dist-clean",
+  "server_env": {
+    "ALLOW_TYPED_PII": "1"
+  },
+  "enabled": true,
+  "health": {
+    "model_reachable": true,
+    "model": "qwen3-vl-2b-instruct-8k",
+    "model_installed": true
+  },
+  "date": "2026-11-05T08:52:19.311Z",
+  "runs": 3
+}

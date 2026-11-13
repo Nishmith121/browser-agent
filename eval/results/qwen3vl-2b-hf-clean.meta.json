@@ -1,0 +1,18 @@
+{
+  "name": "qwen3vl-2b-hf-clean",
+  "label": "Qwen3-VL-2B base (HF 4-bit), clean screens (unsafe)",
+  "model": "base",
+  "base_url": "${LORA_BASE_URL}",
+  "extension": "dist-clean",
+  "server_env": {
+    "ALLOW_TYPED_PII": "1"
+  },
+  "enabled": false,
+  "health": {
+    "model_reachable": true,
+    "model": "base",
+    "model_installed": true
+  },
+  "date": "2026-11-08T11:29:22.370Z",
+  "runs": 3
+}

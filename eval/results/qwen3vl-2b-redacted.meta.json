@@ -1,0 +1,14 @@
+{
+  "name": "qwen3vl-2b-redacted",
+  "label": "Qwen3-VL-2B, redacted (PrivaSight)",
+  "model": "qwen3-vl-2b-instruct-8k",
+  "extension": "dist",
+  "enabled": true,
+  "health": {
+    "model_reachable": true,
+    "model": "qwen3-vl-2b-instruct-8k",
+    "model_installed": true
+  },
+  "date": "2026-10-30T09:17:20.732Z",
+  "runs": 3
+}

@@ -1,0 +1,55 @@
+- id: hr-login
+  site: hr
+  start: /hr/login
+  persona: 6
+  task: "Log in to the HR Portal as {persona.username} using the stored password"
+  secrets: {PASSWORD: "{persona.password}"}
+  expect: [{path: login.ok, equals: true}]
+  max_steps: 10
+
+- id: hr-update-address
+  site: hr
+  start: /hr/profile
+  persona: 7
+  task: "Update my address to {persona.new_address} using the Update address box and save"
+  expect: [{path: address.address, equals: "{persona.new_address}"}]
+  max_steps: 8
+
+- id: hr-update-contact
+  site: hr
+  start: /hr/profile
+  persona: 8
+  task: "Change the contact number field to {persona.new_phone} and save"
+  expect: [{path: address.contact, equals: "{persona.new_phone}"}]
+  max_steps: 8
+
+- id: hr-leave-casual
+  site: hr
+  start: /hr/leave
+  persona: 9
+  task: "Apply for casual leave from 10/11/2026 to 12/11/2026 with the reason family function"
+  expect:
+    - {path: leave.type, equals: "Casual leave"}
+    - {path: leave.from, equals: "10/11/2026"}
+    - {path: leave.to, equals: "12/11/2026"}
+    - {path: leave.reason, contains: "family"}
+  max_steps: 10
+
+- id: hr-leave-sick
+  site: hr
+  start: /hr/leave
+  persona: 0
+  task: "Apply for sick leave from 03/12/2026 to 04/12/2026 with the reason fever"
+  expect:
+    - {path: leave.type, equals: "Sick leave"}
+    - {path: leave.from, equals: "03/12/2026"}
+    - {path: leave.to, equals: "04/12/2026"}
+  max_steps: 10
+
+- id: hr-open-idcard
+  site: hr
+  start: /hr/profile
+  persona: 1
+  task: "Open the ID card page"
+  expect: [{url_contains: "/hr/idcard"}]
+  max_steps: 5
